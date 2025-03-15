@@ -4,7 +4,8 @@ import { Movies } from './components/Movies';
 import { Header } from './components/Header';
 import Errormsg from './components/Errormsg';
 import useGetMovies from './hooks/useGetMovies';
-import ThemeChanger from './components/ThemeChanger/ThemeChanger';
+import ThemeChanger from 'simple-theme-changer';
+
 
 function App() {
   const [query, setQuery] = useState('avengers');
@@ -36,6 +37,7 @@ function App() {
         showSorted={sortOption} 
       />
       <ThemeChanger defaultTheme='dark'/>
+      
       </div>
       <Errormsg error={error} />
       <Movies movies={movies} showFavorites={showFavorites} showSorted={sortOption} />
