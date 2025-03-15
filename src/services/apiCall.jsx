@@ -1,3 +1,4 @@
+// Function to make API calls to fetch movies
 export async function apiCall({query, url}) {
     const listOfErrors = {
         noErrors: '',

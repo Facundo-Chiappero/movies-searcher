@@ -1,3 +1,4 @@
+// Component to display error messages
 function Errormsg({error}){
     return(
         <div className="errorMsg">

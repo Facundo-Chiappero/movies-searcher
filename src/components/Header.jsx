@@ -1,13 +1,13 @@
-// Header.jsx
 import { useRef } from 'react';
 import { useDetectMobile } from '../hooks/useDetectMobile';
 
+// Header component for search and filter options
 export function Header({ onSearch, onViewFavs, showFavorites, onViewSorted, showSorted }) {
   const inputRef = useRef();
   const debounceTimeout = useRef(null);
-  const isMobile = useDetectMobile()
+  const isMobile = useDetectMobile();
 
-
+  // Handle input change with debounce
   const handleWrite = () => {
     if (debounceTimeout.current) {
       clearTimeout(debounceTimeout.current);
@@ -21,6 +21,7 @@ export function Header({ onSearch, onViewFavs, showFavorites, onViewSorted, show
     }, 500);
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const newQuery = inputRef.current.value;
@@ -29,6 +30,7 @@ export function Header({ onSearch, onViewFavs, showFavorites, onViewSorted, show
     }
   };
 
+  // Handle sort option change
   const handleSortChange = (e) => {
     onViewSorted(e.target.value);
   };
@@ -46,14 +48,13 @@ export function Header({ onSearch, onViewFavs, showFavorites, onViewSorted, show
 
 {/* This button will not be displayed on mobile. I made this decision because, on mobile, you will need the keyboard to be open in order to type, which means you can press the send button on the keyboard. Also, it looks better without this button. */}
         <button style={{
-          display: isMobile ? 'none' : 'block'
-        }} type="submit">search</button>
+display: isMobile ? 'none' : 'block'
+}} type="submit">search</button>
 
 
         <button onClick={onViewFavs} className="favorites">
           {showFavorites ? 'Show movies' : 'Show favorites'}
         </button>
-
         <select value={showSorted} onChange={handleSortChange}>
           <option value="noSort">No Sort</option>
           <option value="sortByTitle">Sort by Title</option>

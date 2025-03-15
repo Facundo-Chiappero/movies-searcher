@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+// Component to display movies and manage favorites
 export function Movies({ movies, showFavorites, showSorted }) {
   const [favorites, setFavorites] = useState([]);
 

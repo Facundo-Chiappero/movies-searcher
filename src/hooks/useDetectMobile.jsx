@@ -1,9 +1,10 @@
 
 import { useState, useEffect } from 'react';
+
+// Custom hook to detect if the user is on a mobile device
 export function useDetectMobile(){
   const [isMobile, setIsMobile] = useState(false);
 
-  // Función para detectar si el dispositivo es móvil
   const checkMobileDevice = () => {
     const userAgent = navigator.userAgent.toLowerCase();
     console.log(userAgent);

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { apiCall } from '../services/apiCall';
 
+// Custom hook to fetch movies based on a query
 const useGetMovies = ({ query, url }) => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState('');
